@@ -1,0 +1,220 @@
+# <!=Copyright (C) 2024 Blossom Themes
+# This file is distributed under the GNU General Public License v3 or later.=!>
+msgid ""
+msgstr ""
+"Project-Id-Version: CoachPress Health 1.0.5\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/coachpress-health\n"
+"POT-Creation-Date: 2024-07-30 07:05:44+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2024-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Country: United States\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
+"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-Bookmarks: \n"
+"X-Textdomain-Support: yes\n"
+"X-Generator: grunt-wp-i18n 1.0.3\n"
+
+#: functions.php:57
+msgid "Information Links"
+msgstr ""
+
+#: functions.php:71
+msgid "Demo Link: %1$sClick here.%2$s"
+msgstr ""
+
+#: functions.php:73
+msgid "Documentation Link: %1$sClick here.%2$s"
+msgstr ""
+
+#: functions.php:89 functions.php:110
+msgid "Header Layout"
+msgstr ""
+
+#: functions.php:111
+msgid "Choose the layout of the header for your site."
+msgstr ""
+
+#: functions.php:124 functions.php:144
+msgid "CTA Static Banner Layout"
+msgstr ""
+
+#: functions.php:145
+msgid "Choose the layout of the cta static banner for your site."
+msgstr ""
+
+#: functions.php:157
+msgid "Appearance Settings"
+msgstr ""
+
+#: functions.php:160
+msgid "Change color and body background."
+msgstr ""
+
+#: functions.php:168
+msgid "Typography"
+msgstr ""
+
+#: functions.php:191
+msgid "Primary Font"
+msgstr ""
+
+#: functions.php:192
+msgid "Primary font of the site."
+msgstr ""
+
+#: functions.php:213
+msgid "Secondary Font"
+msgstr ""
+
+#: functions.php:214
+msgid "Secondary font of the site."
+msgstr ""
+
+#: functions.php:236
+msgid "Tertiary Font"
+msgstr ""
+
+#: functions.php:258
+msgid "Font Size"
+msgstr ""
+
+#: functions.php:259
+msgid "Change the font size of your site."
+msgstr ""
+
+#: functions.php:283
+msgid "Load Google Fonts Locally"
+msgstr ""
+
+#: functions.php:284
+msgid ""
+"Enable to load google fonts from your own server instead from google's CDN. "
+"This solves privacy concerns with Google's CDN and their sometimes "
+"less-than-transparent policies."
+msgstr ""
+
+#: functions.php:303
+msgid "Preload Local Fonts"
+msgstr ""
+
+#: functions.php:304
+msgid "Preloading Google fonts will speed up your website speed."
+msgstr ""
+
+#: functions.php:312
+msgid "Click the button to reset the local fonts cache"
+msgstr ""
+
+#: functions.php:314
+msgid "Flush Local Font Files"
+msgstr ""
+
+#: functions.php:328
+msgid "Flush Local Fonts Cache"
+msgstr ""
+
+#: functions.php:353 functions.php:371
+msgid "Header Contact Button"
+msgstr ""
+
+#: functions.php:354
+msgid "This button shows only on header layout 2."
+msgstr ""
+
+#: functions.php:512
+msgid " CoachPress Health | Developed By "
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Blossom Themes"
+msgstr ""
+
+#: functions.php:514
+msgid " Powered by %s. "
+msgstr ""
+
+#: functions.php:514
+msgid "https://wordpress.org/"
+msgstr ""
+
+#: sections/banner.php:15
+msgid "Read More"
+msgstr ""
+
+#: sections/banner.php:16
+msgid "Get Started"
+msgstr ""
+
+#: sections/banner.php:18
+msgid "Know More"
+msgstr ""
+
+#: sections/banner.php:22
+msgid "Be The Spark That Lights Up The Room"
+msgstr ""
+
+#: sections/banner.php:23
+msgid ""
+"To empower women to make a positive impact on the world with fiery passion, "
+"unbridled self-belief, and head-turning style."
+msgstr ""
+
+#. Theme Name of the plugin/theme
+msgid "CoachPress Health"
+msgstr ""
+
+#. Theme URI of the plugin/theme
+msgid "https://blossomthemes.com/wordpress-themes/coachpress-health/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"CoachPress Health is a lead generating WordPress theme perfect for coaches, "
+"mentors, leaders, therapists, speakers and entrepreneurs. The theme "
+"includes several sections such as Banner with Call-to-Action, Newsletter, "
+"About, Services, Testimonials, and Instagram to showcase your services and "
+"introduce your business. This speed-optimized theme is easy to use, "
+"mobile-friendly, and SEO-friendly. CoachPress Health is translation-ready, "
+"Schema-friendly, WooCommerce compatible and RTL script ready. Check theme "
+"details at https://blossomthemes.com/wordpress-themes/coachpress-health/, "
+"demo at https://blossomthemes.com/theme-demo/?theme=coachpress-health, "
+"documentation at https://docs.blossomthemes.com/coachpress-health/, and get "
+"support at https://blossomthemes.com/support-ticket/"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://blossomthemes.com/"
+msgstr ""
+
+#: functions.php:595
+#. Translators: If there are characters in your language that are not supported
+#. by respective fonts, translate this to 'off'. Do not translate into your own
+#. language.
+msgctxt "Primary Font: on or off"
+msgid "on"
+msgstr ""
+
+#: functions.php:596
+msgctxt "Secondary Font: on or off"
+msgid "on"
+msgstr ""
+
+#: functions.php:597
+msgctxt "Tertiary Font: on or off"
+msgid "on"
+msgstr ""
+
+#: functions.php:598
+msgctxt "Site Title Font: on or off"
+msgid "on"
+msgstr ""
