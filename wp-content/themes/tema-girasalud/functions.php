@@ -100,159 +100,25 @@ function mostrar_servicios_en_home()
     }
 }
 
-function obtenerACF() {
-	if ( ! function_exists( 'acf_add_local_field_group' ) ) {
-		return;
-	}
+/**
+ * Cargar archivos personalizados del tema (CPT y ACF)
+ */
+function tema_incluir_archivos_personalizados() {
+    $archivos = array(
+        'inc/cpt.php',  // Custom Post Types
+        'inc/acf.php',  // Campos ACF exportados
+    );
 
-	acf_add_local_field_group( array(
-	'key' => 'group_68ee7a2f3af91',
-	'title' => 'Campos girasalud',
-	'fields' => array(
-		array(
-			'key' => 'field_68ee7a3808974',
-			'label' => 'titulo',
-			'name' => 'titulo',
-			'aria-label' => '',
-			'type' => 'text',
-			'instructions' => '',
-			'required' => 0,
-			'conditional_logic' => 0,
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'default_value' => '',
-			'maxlength' => '',
-			'allow_in_bindings' => 0,
-			'placeholder' => '',
-			'prepend' => '',
-			'append' => '',
-		),
-		array(
-			'key' => 'field_68ee7aab08975',
-			'label' => 'descripcion',
-			'name' => 'descripcion',
-			'aria-label' => '',
-			'type' => 'text',
-			'instructions' => '',
-			'required' => 0,
-			'conditional_logic' => 0,
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'default_value' => '',
-			'maxlength' => '',
-			'allow_in_bindings' => 0,
-			'placeholder' => '',
-			'prepend' => '',
-			'append' => '',
-		),
-		array(
-			'key' => 'field_68ee7b53df900',
-			'label' => 'svg',
-			'name' => 'svg',
-			'aria-label' => '',
-			'type' => 'image',
-			'instructions' => '',
-			'required' => 0,
-			'conditional_logic' => 0,
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'return_format' => 'array',
-			'library' => 'all',
-			'min_width' => '',
-			'min_height' => '',
-			'min_size' => '',
-			'max_width' => '',
-			'max_height' => '',
-			'max_size' => '',
-			'mime_types' => '',
-			'allow_in_bindings' => 0,
-			'preview_size' => 'medium',
-		),
-	),
-	'location' => array(
-		array(
-			array(
-				'param' => 'post_type',
-				'operator' => '==',
-				'value' => 'post',
-			),
-		),
-	),
-	'menu_order' => 0,
-	'position' => 'normal',
-	'style' => 'default',
-	'label_placement' => 'top',
-	'instruction_placement' => 'label',
-	'hide_on_screen' => '',
-	'active' => true,
-	'description' => '',
-	'show_in_rest' => 0,
-) );
-} 
-
-add_action( 'acf/include_fields', 'obtenerACF');
-
-function cptui_register_my_cpts_principal() {
-
-	/**
-	 * Post Type: Girasalud.
-	 */
-
-	$labels = [
-		"name" => esc_html__( "Girasalud", "tema-girasalud" ),
-		"singular_name" => esc_html__( "Girasalud", "tema-girasalud" ),
-		"menu_name" => esc_html__( "Girasalud", "tema-girasalud" ),
-		"all_items" => esc_html__( "Todas las entradas", "tema-girasalud" ),
-		"add_new" => esc_html__( "Añadir nueva entrasa", "tema-girasalud" ),
-		"add_new_item" => esc_html__( "Añadir nuevas entradas", "tema-girasalud" ),
-		"edit_item" => esc_html__( "Editar entrada", "tema-girasalud" ),
-		"new_item" => esc_html__( "Nueva entrada", "tema-girasalud" ),
-		"view_item" => esc_html__( "Ver Entrada", "tema-girasalud" ),
-		"view_items" => esc_html__( "Ver Entradas", "tema-girasalud" ),
-		"search_items" => esc_html__( "Buscar Entradas", "tema-girasalud" ),
-		"not_found" => esc_html__( "No se han encontrado entradas", "tema-girasalud" ),
-		"not_found_in_trash" => esc_html__( "No se han encontrado enrtadas en la papelera", "tema-girasalud" ),
-];
-
-	$args = [
-		"label" => esc_html__( "Girasalud", "tema-girasalud" ),
-		"labels" => $labels,
-		"description" => "Pagina de inicio del sitio web",
-		"public" => true,
-		"publicly_queryable" => true,
-		"show_ui" => true,
-		"show_in_rest" => true,
-		"rest_base" => "",
-		"rest_controller_class" => "WP_REST_Posts_Controller",
-		"rest_namespace" => "wp/v2",
-		"has_archive" => true,
-		"show_in_menu" => true,
-		"show_in_nav_menus" => true,
-		"delete_with_user" => false,
-		"exclude_from_search" => false,
-		"capability_type" => "post",
-		"map_meta_cap" => true,
-		"hierarchical" => true,
-		"can_export" => false,
-		"rewrite" => [ "slug" => "principal", "with_front" => true ],
-		"query_var" => true,
-		"menu_icon" => "dashicons-editor-kitchensink",
-		"supports" => [ "title", "editor", "thumbnail", "page-attributes" ],
-		"taxonomies" => [ "category", "post_tag" ],
-		"show_in_graphql" => false,
-	];
-
-	register_post_type( "principal", $args );
+    foreach ($archivos as $archivo) {
+        $ruta = get_template_directory() . '/' . $archivo;
+        if (file_exists($ruta)) {
+            require_once $ruta;
+        } else {
+            error_log("⚠️ No se encontró el archivo requerido: $archivo");
+        }
+    }
 }
+add_action('after_setup_theme', 'tema_incluir_archivos_personalizados');
 
-add_action( 'init', 'cptui_register_my_cpts_principal' );
+
 
