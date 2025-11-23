@@ -12,9 +12,7 @@
 </head>
 
 <body <?php body_class(); ?>>
-
-  <?php mi_tema_header(); ?>
-
+  <!--No es necesario añadir el mi_tema_header, ya se incluye en el hook wp_head-->
   <main>
     <!-- Banner -->
     <section class="bg-gradient-to-br from-emerald-50 to-blue-50 py-20">
