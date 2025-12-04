@@ -57,30 +57,6 @@ function mi_tema_loop()
     require_once get_template_directory() . '/app/index.php';
 
 }
-//add_action('wp_loaded', 'mi_tema_loop');
 
-/**function mi_tema_loop()
-{
-
-    if (have_posts()) {        
-        
-        while (have_posts()) {
-            the_post();?>
-            
-            <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-                <div class="entry-content">
-                    <?php the_content(); ?>
-                </div>
-            </div>
-        <?php
-        }
-    } else {
-        ?>
-        <h2>No se encontraron entradas</h2>
-<?php
-    }
-}
-
-*/
 
 

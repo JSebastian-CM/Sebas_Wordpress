@@ -3,7 +3,8 @@
 namespace App\shared;
 
 class Config
-{
+{   
+    
     private $cpts;
     private $acfs;
 
