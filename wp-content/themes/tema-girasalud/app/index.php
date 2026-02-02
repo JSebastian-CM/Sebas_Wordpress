@@ -14,14 +14,9 @@ use App\shared\Config;
 if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['endpoint'])) {
     $method = $_SERVER['REQUEST_METHOD'];
     $mode = $_GET['endpoint'];
-    
-    if ($mode !== 'extension') {
-        echo json_encode(['error' => 'Endpoint no válido']);
-        exit;
-    }else{
-        $config = new \App\shared\Config($settings['cpts'], $settings['acfs']);
-        Mapper::Route($mode, $method, $config);
-    }
+    // Establece la configuracion de los cpts y acfs en la clase config
+    $config = new \App\shared\Config($settings['cpts'], $settings['acfs']);
+    Mapper::Route($mode, $method, $config);
 
 } else {
     

@@ -38,19 +38,21 @@ function mi_tema_head()
 }
 add_action('wp_head', 'mi_tema_head');
 
+//Se carga el header
 function mi_tema_header()
 {
     include(__DIR__ . '/header.php');
 }
 add_action('wp_head', 'mi_tema_header');
 
+//carga el footer
 function mi_tema_footer()
 {
     include(__DIR__ . '/footer.php');
 }
 add_action('wp_footer', 'mi_tema_footer');
 
-
+//implementa la logica del sitio
 function mi_tema_loop()
 {
     
@@ -58,5 +60,19 @@ function mi_tema_loop()
 
 }
 
+
+//Quita el editor sin uso
+add_filter('use_block_editor_for_post_type', function ($use, $post_type) {
+    if ($post_type === 'principal') {
+        return false;
+    }
+    return $use;
+}, 10, 2);
+
+add_action('admin_menu', function () {
+    remove_meta_box('slugdiv', 'principal', 'normal');
+    remove_meta_box('categorydiv', 'principal', 'side');
+    remove_meta_box('tagsdiv-post_tag', 'principal', 'side');
+});
 
 

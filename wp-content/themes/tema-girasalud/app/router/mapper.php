@@ -9,14 +9,12 @@ class Mapper
 
         $restClass = ucfirst($class).'Rest';
         $classPath = "App\\Rest\\{$restClass}";
-        echo $classPath;
+        
         if (!class_exists($classPath)) {
             return print('Clase REST no encontrada');
 
         }else{
-            include_once __DIR__ . "/../rest/{$restClass}.php";
-            
-            
+            include_once __DIR__ . "/../rest/{$restClass}.php";   
         }
 
         if ($class == 'extension' && $method == 'GET') {

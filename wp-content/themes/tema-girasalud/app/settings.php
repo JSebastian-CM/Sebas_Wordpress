@@ -2,9 +2,6 @@
 
 namespace App;
 
-include_once __DIR__ . '/shared/Config.php';
-
-use App\shared\Config;
 
 $CPT =  [
         'girasalud' => [

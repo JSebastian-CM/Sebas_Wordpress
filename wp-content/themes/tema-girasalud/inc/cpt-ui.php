@@ -44,7 +44,7 @@ function cptui_register_my_cpts_principal() {
 		"rewrite" => [ "slug" => "principal", "with_front" => true ],
 		"query_var" => true,
 		"menu_icon" => "dashicons-editor-kitchensink",
-		"supports" => [ "title", "editor", "thumbnail", "page-attributes" ],
+		"supports" => [],
 		"taxonomies" => [ "category", "post_tag" ],
 		"show_in_graphql" => false,
 	];

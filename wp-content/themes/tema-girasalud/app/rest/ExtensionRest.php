@@ -22,6 +22,7 @@ class ExtensionRest
         
     }
 
+    #Carga la configuracion al ExtensionService y este devuelve el contenido de las extensiones
     public function get()
     {
         $extensionServicio = new ExtensionService($this->config);
