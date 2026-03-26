@@ -1,38 +1,39 @@
 # ==============================
-# ARCHIVOS DE WORDPRESS A EXCLUIR
+# GITIGNORE CUSTOM PARA TEMA GIRASALUD
 # ==============================
 
-# Núcleo de WordPress
-wp-admin/
-wp-includes/
+# Ignorar todo por defecto
+/*
 
-# Configuración sensible
+# Excluir carpeta de tema girasalud (todo lo que contiene el theme)
+!/wp-content/themes/tema-girasalud/
+!/wp-content/themes/tema-girasalud/**
+
+# Excluir lo que no debe versionarse (filtros dentro de tema)
+/wp-content/themes/tema-girasalud/node_modules/
+/wp-content/themes/tema-girasalud/*.log
+/wp-content/themes/tema-girasalud/.env
+/wp-content/themes/tema-girasalud/.DS_Store
+/wp-content/themes/tema-girasalud/Thumbs.db
+/wp-content/themes/tema-girasalud/nbproject/private/
+
+# Mantener archivos de configuración del entorno no versionados
+/.env
+/.vscode/
+/.idea/
+
+# Ignorar archivos de WP core y subida de media fuera del tema
+/wp-admin/
+/wp-includes/
 wp-config.php
 wp-config-sample.php
-
-# Archivos de instalación
 license.txt
 readme.html
-
-# ==============================
-# ARCHIVOS DE CONTENIDO
-# ==============================
-
-# Subidas del usuario (muy pesadas)
 wp-content/uploads/
 
-
-# ==============================
-# ARCHIVOS TEMPORALES / SISTEMA
-# ==============================
-*.log
+# Archivos temporales comunes
 *.tmp
 *.bak
 *.zip
-.DS_Store
-Thumbs.db
-node_modules/
-.env
-.idea/
-.vscode/
-/wp-content/themes/tema-girasalud/nbproject/private/
+*.log
+

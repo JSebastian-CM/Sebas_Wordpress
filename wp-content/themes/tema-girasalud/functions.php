@@ -13,8 +13,8 @@ add_action('wp_enqueue_scripts', 'tema_girasalud_scripts');
 
 function tema_incluir_archivos_personalizados() {
     $archivos = array(
-        'inc/cpt.php',  
-        'inc/acf.php',  
+        'inc/cpt-ui.php',  
+        'inc/acf-fields.php' 
     );
 
     foreach ($archivos as $archivo) {

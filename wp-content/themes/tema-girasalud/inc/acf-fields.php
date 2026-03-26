@@ -99,4 +99,4 @@ function obtenerACF() {
 ) );
 } 
 
-add_action( 'acf/include_fields', 'obtenerACF');
+add_action( 'acf/init', 'obtenerACF');
