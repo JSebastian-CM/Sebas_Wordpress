@@ -27,6 +27,7 @@
     <!-- End Banner -->
 
     <?php
+
     mi_tema_loop();
     ?>
   </main>
