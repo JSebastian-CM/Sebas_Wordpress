@@ -11,22 +11,32 @@ function tema_girasalud_scripts()
 }
 add_action('wp_enqueue_scripts', 'tema_girasalud_scripts');
 
-function tema_incluir_archivos_personalizados() {
-    $archivos = array(
-        'inc/cpt-ui.php',  
-        'inc/acf-fields.php'  
-    );
-
-    foreach ($archivos as $archivo) {
-        $ruta = get_template_directory() . '/' . $archivo;
-        if (file_exists($ruta)) {
-            require_once $ruta;
-        } else {
-            error_log("⚠️ No se encontró el archivo requerido: $archivo");
-        }
+function tema_incluir_cpts() {
+    $archivo = 'inc/cpt-ui.php'; 
+    $ruta = get_template_directory() . '/' . $archivo;
+    
+    if (file_exists($ruta)) {
+        require_once $ruta;
+    } else {
+        error_log("⚠️ No se encontró el archivo requerido: $archivo");
     }
+    
 }
-add_action('after_setup_theme', 'tema_incluir_archivos_personalizados');
+add_action('after_setup_theme', 'tema_incluir_cpts');
+
+function tema_incluir_acf_fields() {
+    $archivo = 'inc/acf-fields.php';
+    $ruta = get_template_directory() . '/' . $archivo;
+
+    if (file_exists($ruta)) {
+        require_once $ruta;
+    } else {
+        error_log("⚠️ No se encontró el archivo requerido: $archivo");
+    }
+    
+}
+add_action('init', 'tema_incluir_acf_fields');
+
 
 
 

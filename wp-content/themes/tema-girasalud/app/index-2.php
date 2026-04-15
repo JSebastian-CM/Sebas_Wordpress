@@ -3,8 +3,8 @@
 // Archivos necesarios
 include_once __DIR__ . '/shared/Config.php';
 $settings = include __DIR__ . '/settings.php';
-//Planeo obtener el slug para clasificar el endpoint a llamar, pero por ahora lo dejo fijo
-$slug = get_post_field('post_name', $post_id);
+
+
 
 switch ($slug) {
     case 'inicio':

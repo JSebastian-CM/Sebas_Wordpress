@@ -17,7 +17,7 @@ class Renderer
             $servicio_link = $cpt['permalink'] ?? '';
             $titulo = $acf['titulo'] ?? '';
             $descripcion = $acf['descripcion'] ?? '';
-            $svg = $acf['svg'] ?? '';
+            $svg = $acf['imagen'] ?? '';
 
             include(__DIR__ . '/../../servicios/servicio_item.php'); 
         }

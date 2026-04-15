@@ -30,6 +30,8 @@ wp-config-sample.php
 license.txt
 readme.html
 wp-content/uploads/
+/wp-content/plugins/
+/wp-content/mu-plugins/
 
 # Archivos temporales comunes
 *.tmp

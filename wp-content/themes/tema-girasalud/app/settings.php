@@ -14,7 +14,7 @@ $CPT =  [
             'order'          => 'DESC',
         ]
     ];
-$ACF =['titulo','descripcion','svg'];
+$ACF =['titulo','descripcion','imagen'];
 
 
 // Retorna un array asociativo con la configuración
