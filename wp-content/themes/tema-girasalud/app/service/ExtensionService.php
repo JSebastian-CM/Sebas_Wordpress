@@ -47,9 +47,14 @@ class ExtensionService
                     
                 }
 
+                //Usando CubeWP framework por los campos repetibles
+                $cubeData = get_post_meta(get_the_ID(), 'bloques', true);
+                
+
                 $extensiones = new Extensiones();
                 $extensiones->setCPT($cptData);
                 $extensiones->setACF($acfData);
+                $extensiones->setCubeWP($cubeData);
 
                 $resultados[] = $extensiones;
             }

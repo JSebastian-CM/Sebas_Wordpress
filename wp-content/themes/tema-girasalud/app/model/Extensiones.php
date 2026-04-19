@@ -5,6 +5,7 @@ class Extensiones
 {
     private $CPT;
     private $ACF;
+    private $CubeWP;
      
     public function getCPT()
     {
@@ -25,4 +26,16 @@ class Extensiones
     {
         $this->ACF = $ACF;
     }
+
+    public function getCubeWP()
+    {
+        return $this->CubeWP;
+    }
+
+    public function setCubeWP($CubeWP)
+    {
+        $this->CubeWP = $CubeWP;
+    }
+    
+
 }

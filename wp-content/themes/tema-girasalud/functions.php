@@ -71,8 +71,8 @@ function mi_tema_loop()
     
     $query = new WP_Query($args);
     
-    if ($query->have_posts()) :
-        while ($query->have_posts()) : $query->the_post();
+    if ($query->have_posts()) {
+        while ($query->have_posts()) { $query->the_post();
             // Obtener el slug correctamente
             $post_id = get_the_ID();  //  Define $post_id aquí
             $slug = get_post_field('post_name', $post_id);  //  Obtiene el slug
@@ -83,11 +83,11 @@ function mi_tema_loop()
             // Ahora puedes usar $slug y $post_id en index-2.php
             // O integrar el código de index-2.php directamente aquí
             require_once get_template_directory() . '/app/index-2.php';
-        endwhile;
+        }
         wp_reset_postdata();
-    else :
+    }else{
         echo '<h2>No se encontró el post "inicio"</h2>';
-    endif;
+    }
 }
 
 

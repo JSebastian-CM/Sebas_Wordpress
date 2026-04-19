@@ -26,8 +26,10 @@ class ExtensionRest
     {
         $extensionServicio = new ExtensionService($this->config);
         $extensiones = $extensionServicio->getExtensiones();
-        Renderer::render($extensiones);
-        //aqui uso lo de renderizar con presenter
+        $renderer = new Renderer();
+        $renderer->getInfo($extensiones);
+        $renderer->renderExtensiones();
+        //aqui uso lo de renderizar (mostrar en html) con presenter
         // No se necesita el Mapper
     }
 }

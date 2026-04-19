@@ -3,25 +3,57 @@ namespace App\Presenter;
 
 class Renderer
 {
+    private $cptData;
+    private $acfData;
+    private $cubeData;
 
-    public static function render($extensiones)
+    public function getInfo($extensiones)  // ← Quitado 'static'
     {   
-        include(__DIR__ . '/../../servicios/servicio_head.php');
+        
         foreach ($extensiones as $ext) {
             // $ext puede ser objeto App\Model\Extensiones o array, ajustar según tu Service
-            $cpt = $ext->getCPT();
-            $acf =$ext->getACF();
+            $this->cptData = $ext->getCPT();
+            $this->acfData = $ext->getACF();
+            $this->cubeData = $ext->getCubeWP();
+ 
 
-            // variables que usa tu parcial servicio_item.php
-            $servicio_slug = $cpt['slug'] ?? '';
-            $servicio_link = $cpt['permalink'] ?? '';
-            $titulo = $acf['titulo'] ?? '';
-            $descripcion = $acf['descripcion'] ?? '';
-            $svg = $acf['imagen'] ?? '';
-
-            include(__DIR__ . '/../../servicios/servicio_item.php'); 
         }
+        
   
+    }
+
+    public function renderExtensiones()
+    {   
+        //Extraer información relevante para la vista
+        //Aun no uso el slug ni permalink pero los dejo por si los necesito luego
+        $servicio_slug = $this->cptData['slug'] ?? '';
+        $servicio_link = $this->cptData['permalink'] ?? '';
+        $titulo = '';
+        $descripcion = '';
+        $imagen = '';
+        
+        print_r($this->acfData); // Para depuración, muestra el contenido de ACF
+        foreach ($this->acfData as $key => $value) {
+            switch ($key) {
+                case 'titulo':
+                    $titulo = $value;
+                    break;
+                case 'descripcion':
+                    $descripcion = $value;
+                    break;
+                case 'imagen':
+                    $imagen = $value;
+                    break;
+                // Agrega más casos según tus campos ACF
+            }
+            
+        }
+
+        foreach ($this->cubeData as $bloque) {
+            include(__DIR__ . '/../../servicios/servicio_item.php');
+        }
+        include(__DIR__ . '/../../servicios/servicio_head.php');
+        
         include(__DIR__ . '/../../servicios/servicio_footer.php'); 
     }
 }

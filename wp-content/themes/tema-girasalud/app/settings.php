@@ -15,10 +15,12 @@ $CPT =  [
         ]
     ];
 $ACF =['titulo','descripcion','imagen'];
+$Pods_Inicio = ['titulo','descripcion','multimedia'];
 
 
 // Retorna un array asociativo con la configuración
 return [
     'cpts' => $CPT,
     'acfs' => $ACF,
+    'pods_inicio' => $Pods_Inicio,
 ];
