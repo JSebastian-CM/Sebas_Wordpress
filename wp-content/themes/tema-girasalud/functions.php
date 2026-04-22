@@ -60,34 +60,31 @@ function mi_tema_footer()
 }
 add_action('wp_footer', 'mi_tema_footer');
 
-
+//Faltan cambios en index-2, el codigo no carga bien el script de acuerdo al slug
 function mi_tema_loop()
 {
-    $args = array(
-        'post_type' => 'principal',  //  Corregido: usa el slug real del CPT
-        'name' => 'inicio',          // Busca por slug/name
-        'posts_per_page' => 1
-    );
-    
-    $query = new WP_Query($args);
-    
-    if ($query->have_posts()) {
-        while ($query->have_posts()) { $query->the_post();
-            // Obtener el slug correctamente
-            $post_id = get_the_ID();  //  Define $post_id aquí
-            $slug = get_post_field('post_name', $post_id);  //  Obtiene el slug
-            
-            // Mostrar contenido básico si quieres
-            the_content();
-            
-            // Ahora puedes usar $slug y $post_id en index-2.php
-            // O integrar el código de index-2.php directamente aquí
+    if (is_singular('principal')) {
+        while (have_posts()) {
+            the_post();
+            $post_id = get_the_ID();
+            $slug = get_post_field('post_name', $post_id);
             require_once get_template_directory() . '/app/index-2.php';
         }
-        wp_reset_postdata();
-    }else{
-        echo '<h2>No se encontró el post "inicio"</h2>';
+    } else {
+        // fallback a inicio
+        $query = new WP_Query([
+            'post_type' => 'principal',
+            'name' => 'inicio',
+            'posts_per_page' => 1
+        ]);
+        if ($query->have_posts()) {
+            while ($query->have_posts()) {
+                $query->the_post();
+                $post_id = get_the_ID();
+                $slug = get_post_field('post_name', $post_id);
+                require_once get_template_directory() . '/app/index-2.php';
+            }
+            wp_reset_postdata();
+        }
     }
 }
-
-

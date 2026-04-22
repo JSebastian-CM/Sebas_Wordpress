@@ -1,4 +1,4 @@
-<div class="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-2xl hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+<div class="p-8 rounded-2xl hover:shadow-lg transition-all duration-300 hover:-translate-y-1" style="background: linear-gradient(135deg, #f0f9ff, <?php echo $bloque['color']; ?>);">
     <div class="bg-blue-600 w-16 h-16 rounded-full flex items-center justify-center mb-6">
         <img src="<?php echo $bloque['imagen'] ?? ''; ?>" alt="Imagen" class="rounded-full">
     </div>

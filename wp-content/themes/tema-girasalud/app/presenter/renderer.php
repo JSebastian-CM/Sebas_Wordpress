@@ -24,6 +24,7 @@ class Renderer
 
     public function renderExtensiones()
     {   
+        include(__DIR__ . '/../../servicios/servicio_head.php');
         //Extraer información relevante para la vista
         //Aun no uso el slug ni permalink pero los dejo por si los necesito luego
         $servicio_slug = $this->cptData['slug'] ?? '';
@@ -32,7 +33,7 @@ class Renderer
         $descripcion = '';
         $imagen = '';
         
-        print_r($this->acfData); // Para depuración, muestra el contenido de ACF
+
         foreach ($this->acfData as $key => $value) {
             switch ($key) {
                 case 'titulo':
@@ -48,11 +49,12 @@ class Renderer
             }
             
         }
-
-        foreach ($this->cubeData as $bloque) {
-            include(__DIR__ . '/../../servicios/servicio_item.php');
+        
+        if (!empty($this->cubeData )){
+            foreach ($this->cubeData as $bloque) {
+                include(__DIR__ . '/../../servicios/servicio_item.php');
+            }
         }
-        include(__DIR__ . '/../../servicios/servicio_head.php');
         
         include(__DIR__ . '/../../servicios/servicio_footer.php'); 
     }
