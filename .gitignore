@@ -5,11 +5,14 @@
 # Ignorar todo por defecto
 /*
 
+# Mantener el archivo de gitignore
+!/.gitignore
+
 # Excluir carpeta de tema girasalud (todo lo que contiene el theme)
 !/wp-content/themes/tema-girasalud/
 !/wp-content/themes/tema-girasalud/**
 
-# Excluir lo que no debe versionarse (filtros dentro de tema)
+# Excluir lo que no debe versionarse dentro del tema
 /wp-content/themes/tema-girasalud/node_modules/
 /wp-content/themes/tema-girasalud/*.log
 /wp-content/themes/tema-girasalud/.env
@@ -22,20 +25,38 @@
 /.vscode/
 /.idea/
 
-# Ignorar archivos de WP core y subida de media fuera del tema
+# Ignorar archivos de WP core y contenido fuera del tema
 /wp-admin/
 /wp-includes/
+/wp-content/index.php
+/wp-content/languages/
+/wp-content/uploads/
+/wp-content/plugins/
+/wp-content/mu-plugins/
+/wp-content/themes/index.php
 wp-config.php
 wp-config-sample.php
 license.txt
 readme.html
-wp-content/uploads/
-/wp-content/plugins/
-/wp-content/mu-plugins/
+.htaccess
+wp-activate.php
+wp-blog-header.php
+wp-comments-post.php
+wp-cron.php
+wp-links-opml.php
+wp-load.php
+wp-login.php
+wp-mail.php
+wp-settings.php
+wp-signup.php
+wp-trackback.php
+xmlrpc.php
 
 # Archivos temporales comunes
 *.tmp
 *.bak
 *.zip
 *.log
+/.DS_Store
+Thumbs.db
 
