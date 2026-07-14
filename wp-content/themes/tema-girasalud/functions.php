@@ -68,7 +68,7 @@ function mi_tema_loop()
             the_post();
             $post_id = get_the_ID();
             $slug = get_post_field('post_name', $post_id);
-            require_once get_template_directory() . '/app/index-2.php';
+            require_once get_template_directory() . '/app/index.php';
         }
     } else {
         // fallback a inicio
@@ -82,7 +82,7 @@ function mi_tema_loop()
                 $query->the_post();
                 $post_id = get_the_ID();
                 $slug = get_post_field('post_name', $post_id);
-                require_once get_template_directory() . '/app/index-2.php';
+                require_once get_template_directory() . '/app/index.php';
             }
             wp_reset_postdata();
         }

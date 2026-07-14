@@ -1,16 +1,43 @@
 <?php
 
+// Archivos necesarios
 include_once __DIR__ . '/shared/Config.php';
-include_once __DIR__ . '/rest/ExtensionRest.php';
 $settings = include __DIR__ . '/settings.php';
 
-use App\Rest\ExtensionRest;
 
-// Verifica el método de la solicitud
-if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    $config = new \App\shared\Config($settings['cpts'], $settings['acfs']);
-    $extensionRest = new \App\Rest\ExtensionRest($config);
-    $resultado = $extensionRest->get();
-} else {
- echo 'Llamada incorrecta';   
+
+switch ($slug) {
+    case 'inicio':
+        $nombreRest = 'ExtensionRest';
+        break;
+    case 'principal':
+        $nombreRest = 'PrincipalRest';
+        break;
+    case 'servicios':
+        $nombreRest = 'ServiciosRest';
+        break;
+    default:
+        header('Content-Type: application/json');
+        echo json_encode(['error' => 'El endpoint solicitado no existe']);
+        exit;
 }
+
+if (!file_exists(__DIR__ . "/rest/{$nombreRest}.php")) {
+    header('Content-Type: application/json');
+    echo json_encode(['error' => 'El endpoint solicitado no existe']);
+    exit;
+}
+
+include_once __DIR__ . "/rest/{$nombreRest}.php";
+
+
+$config = new \App\shared\Config($settings['cpts'], $settings['acfs']);
+$className = "\\App\\Rest\\$nombreRest";
+$extensionRest = new $className($config);
+#Se deja de usar ExtensionRest para instanciar al service
+
+$extensionServicio = new ExtensionService($this->config);
+$extensiones = $extensionServicio->getExtensiones();
+$renderer = new Renderer();
+$renderer->getInfo($extensiones);
+$renderer->renderExtensiones();
