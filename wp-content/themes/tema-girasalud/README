@@ -1,0 +1,101 @@
+# Tema Girasalud - Sistema de Carga de Campos ACF
+
+## Descripción General
+Aplicación para la gestión y carga automática de campos personalizados (ACF - Advanced Custom Fields) en el tema Girasalud.
+
+## Estructura Principal
+
+### Directorios
+- `/acf-fields/` - Definiciones de grupos de campos ACF
+- `/includes/` - Funciones de carga y registro
+- `/assets/` - Estilos y scripts adicionales
+
+## Funcionamiento
+
+### Estructura de la Carpeta `app/`
+
+```
+app/
+├── index.php - Punto de entrada REST para solicitudes GET, configura y ejecuta ExtensionRest.
+├── index-2.php - Punto de entrada alternativo que selecciona endpoint REST basado en slug del post.
+├── settings.php - Define configuraciones de Custom Post Types (CPTs) y Advanced Custom Fields (ACFs).
+├── model/
+│   └── Extensiones.php - Modelo que almacena datos de CPT y ACF para cada extensión.
+├── presenter/
+│   └── renderer.php - Clase que renderiza extensiones usando parciales de servicios (head, item, footer).
+├── rest/
+│   └── ExtensionRest.php - Controlador REST que obtiene extensiones del servicio y las renderiza.
+├── service/
+│   └── ExtensionService.php - Servicio que consulta WordPress para obtener posts y campos ACF, creando instancias de Extensiones.
+└── shared/
+    └── Config.php - Clase de configuración que maneja arrays de CPTs y ACFs.
+```
+
+### Flujo de Ejecución
+- **Inicialización**: `settings.php` define configuraciones de CPTs y ACFs.
+- **Configuración**: `Config.php` almacena y proporciona acceso a las configuraciones.
+- **Consulta de Datos**: `ExtensionService.php` utiliza la configuración para realizar consultas WP_Query a WordPress, obteniendo posts y campos ACF.
+- **Modelado**: Crea instancias de `Extensiones.php` con datos de CPT y ACF para cada post.
+- **Control REST**: `ExtensionRest.php` (llamado desde `index.php` o `index-2.php`) obtiene las extensiones del servicio.
+- **Renderizado**: `renderer.php` itera sobre las extensiones y renderiza usando parciales (`servicio_head.php`, `servicio_item.php`, `servicio_footer.php`).
+
+## Requisitos
+- Plugin Advanced Custom Fields Pro/Free
+- WordPress 5.0+
+- PHP 7.4+
+
+## Proyeccion a futuro
+```
+theme-girasalud
+│
+├── functions.php
+├── style.css
+├── header.php
+├── footer.php
+├── index.php
+│
+├── app
+│   │
+│   ├── Bootstrap
+│   │   └── Application.php
+│   │
+│   ├── Container
+│   │   └── Container.php
+│   │
+│   ├── Contracts
+│   │   ├── Repository
+│   │   └── Services
+│   │
+│   ├── Domain
+│   │   ├── Entities
+│   │   ├── DTO
+│   │   ├── Enums
+│   │   └── ValueObjects
+│   │
+│   ├── Api
+│   │   ├── Controllers
+│   │   ├── Routes
+│   │   └── Middleware
+│   │
+│   ├── Services
+│   │
+│   ├── Infrastructure
+│   │   ├── WordPress
+│   │   │   ├── Acf
+│   │   │   ├── Cpt
+│   │   │   └── Hooks
+│   │   │
+│   │   └── Persistence
+│   │
+│   ├── Responses
+│   │
+│   └── Shared
+│       └── Config.php
+│
+└── templates
+    └── servicio
+        ├── card.php
+        ├── item.php
+        └── footer.php
+
+```

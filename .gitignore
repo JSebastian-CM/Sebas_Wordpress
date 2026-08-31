@@ -9,6 +9,8 @@
 !/.gitignore
 
 # Excluir carpeta de tema girasalud (todo lo que contiene el theme)
+!/wp-content/
+!/wp-content/themes/
 !/wp-content/themes/tema-girasalud/
 !/wp-content/themes/tema-girasalud/**
 
